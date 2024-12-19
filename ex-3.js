@@ -1,11 +1,30 @@
 function sortByRating(shops) {
   // Start coding here
+
+
+  // ลูปซ้อนลูป
+  //เอาค่าน้อยไปไว้ทางขวาทุดก่อน อันต่อมาค่อยไปวาง ขวาสุด -j
+  for (let j = 0; j < shops.length - 1; j++) {
+    for (let i = 0; i < shops.length - j - 1; i++) {
+      //console.log(j, i);
+      if (shops[i].rating < shops[i + 1].rating) {
+        let temp = shops[i];
+        shops[i] = shops[i + 1];
+        shops[i + 1] = temp;
+        //console.log(shops);
+      }
+    }
+  }
+  return shops;
 }
 
 /* 
   1. ควรใช้ Algorithm ใดในการแก้โจทย์นี้ 
+  ตอบ Bubble Sort
   2. ให้เหตุผลประกอบว่าทำไมถึงเลือกใช้ Algorithm นี้
+  ตอบ น่าจะเรียงข้อมูลง่ายที่สุด
   3. ให้ระบุว่า Big O Notation ของ Function นี้คือเท่าไร เพราะอะไร
+  ตอบ n^2 เพราะเป็น nested loop  
 */
 
 const shops = [

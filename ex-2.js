@@ -1,11 +1,29 @@
 function findBookIndex(books, searchBook) {
   // Start coding here
+  
+  let start = 0;  
+  let end = books.length - 1;
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    if (books[mid].title === searchBook) {
+      return mid;
+    }
+    if (books[mid].title < searchBook) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
+    }
+  }
+  return -1;
 }
 
 /*
   1. ควรใช้ Search Algorithm ใดในการแก้โจทย์นี้ 
+  ตอบ Binary Search 
   2. ให้เหตุผลประกอบว่าทำไมถึงเลือกใช้ Search Algorithm นี้
+  ตอบ เพราะข้อมูลเรียงลำดับ
   3. ให้ระบุว่า Big O Notation ของ Function นี้คือเท่าไร เพราะอะไร
+  ตอบ Log n เพราะ ตัดข้อมูลออกทีละครึ่ง
 */
 
 const books = [
